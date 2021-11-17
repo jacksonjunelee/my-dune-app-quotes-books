@@ -13,21 +13,34 @@ code {
 }
 
 
-.quote-list {
+.quote-list, .book-list {
   border-right: 1px solid black;
   min-height: 100vh;
   width: 50%;
 }
 
-.quote {
+.quote, .book {
   cursor: pointer;
 }
 
-.quote-details {
+.book {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.book-p {
+  display: inline;
+}
+
+.item-details {
   position: fixed;
   right: 0;
   top: 0;
   width: 50%;
   max-height: 100%;
   overflow-y: auto;
+}
+
+.button {
+  padding: 30px;
 }

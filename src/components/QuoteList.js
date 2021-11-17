@@ -8,6 +8,7 @@ export default function QuoteList({
 }) {
   return (
     <div className="quote-list">
+    <h1>Quotes</h1>
       {quotes.map((quote) => {
         return (
           <Quote
@@ -17,7 +18,6 @@ export default function QuoteList({
           />
         );
       })}
-      <button onClick={handleOnClickClear}>Clear</button>
     </div>
   );
 }

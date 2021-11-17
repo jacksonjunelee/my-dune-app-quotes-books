@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import QuoteList from './components/QuoteList';
 import Quote from './components/Quote';
 import BookList from './components/BookList';
@@ -43,14 +43,19 @@ function App() {
     fetchData();
   }, [])
 
+  const selectedItem = useMemo(() => {
+    if (selectedQuote) return <Quote {...selectedQuote}/>;
+    if (selectedBook) return <Book {...selectedBook}/>;
+    return null
+  }, [selectedQuote, selectedBook])
+
   return (
     <div className="App">
       <QuoteList quotes={quotes} handleOnClickSelectedQuote={handleOnClickSelectedQuote}/>
       <BookList books={books} handleOnClickSelectedBook={handleOnClickSelectedBook}/>
 
       <div className="item-details">
-        { selectedQuote && <Quote {...selectedQuote}/>}
-        { selectedBook && <Book {...selectedBook}/>}
+        {selectedItem}
       </div>
       <button className="button" onClick={handleOnClickClear}>Clear</button>
     </div>
